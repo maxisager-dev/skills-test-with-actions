@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-- name: Set up Python
+ - name: Set up Python
   uses: actions/setup-python@v4
   with:
     python-version: 3.13
@@ -25,9 +25,9 @@ jobs:
     pip install pytest==8.4.1
     pip install coverage==7.9
     pip install pytest-cov==6.2.1
-- name: Run tests and generate coverage details
+  name: Run tests and generate coverage details
   run: pytest --cov=src
-- name: Coverage comment
+  - name: Coverage comment
   uses: py-cov-action/python-coverage-comment-action@v3
   with:
     GITHUB_TOKEN: ${{ github.token }}
